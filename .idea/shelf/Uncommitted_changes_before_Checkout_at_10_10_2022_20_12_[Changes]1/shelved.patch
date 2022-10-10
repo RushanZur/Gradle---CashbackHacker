@@ -1,0 +1,18 @@
+Index: .github/workflows/gradle.yml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># This workflow uses actions that are not certified by GitHub.\r\n# They are provided by a third-party and are governed by\r\n# separate terms of service, privacy policy, and support\r\n# documentation.\r\n# This workflow will build a Java project with Gradle and cache/restore any dependencies to improve the workflow execution time\r\n# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-gradle\r\n\r\nname: Java CI with Gradle\r\n\r\non:\r\n  push:\r\n    branches: [ \"junit4\" ]\r\n  pull_request:\r\n    branches: [ \"junit4\" ]\r\n\r\npermissions:\r\n  contents: read\r\n\r\njobs:\r\n  build:\r\n\r\n    runs-on: ubuntu-latest\r\n\r\n    steps:\r\n    - uses: actions/checkout@v3\r\n    - name: Set up JDK 11\r\n      uses: actions/setup-java@v3\r\n      with:\r\n        java-version: '11'\r\n        distribution: 'temurin'\r\n    - name: Build with Gradle\r\n      uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1\r\n      with:\r\n        arguments: build\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.github/workflows/gradle.yml b/.github/workflows/gradle.yml
+--- a/.github/workflows/gradle.yml	
++++ b/.github/workflows/gradle.yml	
+@@ -29,6 +29,7 @@
+         java-version: '11'
+         distribution: 'temurin'
+     - name: Build with Gradle
++      run: chmod +x gradlew
+       uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
+       with:
+         arguments: build
